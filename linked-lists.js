@@ -3,7 +3,7 @@ class LinkedList {
         this.head = null;
     }
 
-    append = (value) => {
+    append(value) {
         const node = new Node();
         node.value = value;
         if(this.head === null) {this.head = node; return;}
@@ -13,6 +13,14 @@ class LinkedList {
         }
         current.nextNode = node;
     }
+
+    prepend(value) {
+        const node = new Node();
+        node.value = value;
+        node.nextNode = this.head;
+        this.head = node;
+    }
+
 }
 
 class Node {
@@ -25,8 +33,8 @@ class Node {
 
 const list = new LinkedList();
 list.append('hey');
-list.append('yo');
 list.append('hey ho');
 list.append('lesgo');
+list.prepend('thisfirst');
 
 console.log(list);
