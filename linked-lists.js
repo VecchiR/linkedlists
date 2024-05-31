@@ -32,12 +32,24 @@ class LinkedList {
         return count;
     }
     
-    tail = () => {
+    tail() {
         let tail = this.head;
         while (tail.nextNode != null) {
             tail = tail.nextNode;
         }
         return tail;
+    }
+
+    at(index) {
+        if (index >= this.size() || index < 0) {return 'Index is out of range!'};
+        let node = this.head;
+        let count = 0;
+        while (count != index) {
+            count++;
+            node = node.nextNode;
+        }
+        return node;
+
     }
 
 }
@@ -55,7 +67,6 @@ list.append('hey');
 list.append('hey ho');
 list.append('lesgo');
 list.prepend('thisfirst');
-list.size();
 
 
-console.log(list.tail());
+console.log(list.at(0), list.at(1), list.at(2), list.at(4));
