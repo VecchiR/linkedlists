@@ -21,6 +21,17 @@ class LinkedList {
         this.head = node;
     }
 
+    size() {
+        if(this.head === null) {return 0 ;}
+        let count = 1;
+        let current = this.head;
+        while (current.nextNode != null) {
+            count++;
+            current = current.nextNode;
+        }
+        return count;
+    }
+
 }
 
 class Node {
@@ -36,5 +47,7 @@ list.append('hey');
 list.append('hey ho');
 list.append('lesgo');
 list.prepend('thisfirst');
+list.size();
 
+console.log(list.size());
 console.log(list);
