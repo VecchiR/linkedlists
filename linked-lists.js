@@ -31,6 +31,14 @@ class LinkedList {
         }
         return count;
     }
+    
+    tail = () => {
+        let tail = this.head;
+        while (tail.nextNode != null) {
+            tail = tail.nextNode;
+        }
+        return tail;
+    }
 
 }
 
@@ -49,5 +57,5 @@ list.append('lesgo');
 list.prepend('thisfirst');
 list.size();
 
-console.log(list.size());
-console.log(list);
+
+console.log(list.tail());
