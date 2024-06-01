@@ -59,6 +59,16 @@ class LinkedList {
         }
         node.nextNode = null;
     }
+
+    contains(value) {
+        if (this.head === null) { return false; }
+        let node = this.head;
+        while (node.nextNode != null) {
+            if (node.value === value) {return true;}
+            node = node.nextNode;
+        }
+        return false;
+    }
 }
 
 class Node {
@@ -70,9 +80,10 @@ class Node {
 
 
 const list = new LinkedList();
-// list.append('hey');
-// list.append('hey ho');
-// list.append('lesgo');
+list.append('hey');
+list.append('ho');
+list.append('lesgo');
 
-list.pop();
-console.log(list);
+
+console.log([list.contains('ho')
+,list.contains('4')]);
