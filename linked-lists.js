@@ -69,6 +69,18 @@ class LinkedList {
         }
         return false;
     }
+
+    find(value) {
+        let index = 0;
+        let node = this.head;
+        if (node.value === value) {return index;}
+        while (node.nextNode != null) {
+            node = node.nextNode;
+            index++;
+            if (node.value === value) {return index;}
+        }
+        return null;
+    }
 }
 
 class Node {
@@ -85,5 +97,4 @@ list.append('ho');
 list.append('lesgo');
 
 
-console.log([list.contains('ho')
-,list.contains('4')]);
+console.log([list]);
