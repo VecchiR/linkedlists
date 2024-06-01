@@ -1,3 +1,10 @@
+class Node {
+    constructor() {
+        this.value = null;
+        this.nextNode = null;
+    }
+}
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -94,13 +101,23 @@ class LinkedList {
         return string;
     }
 
-}
-
-class Node {
-    constructor() {
-        this.value = null;
-        this.nextNode = null;
+    insertAt(value, index) {
+        if (index >= this.size() || index < 0) { return 'Index is out of range!' ;}
+        if (index === this.size()) {this.append(value);} // PRECISO FAZER FUNCIONAR PRA ESSE CASO SIZE=3, INDEX TB 3
+        let node = this.head;
+        let count = 0;
+        while (count < index) {
+            count++;
+            node = node.nextNode;
+        }
+        let temp = {
+            value: node.value,
+            nextNode: node.nextNode,
+        };
+        node.value = value;
+        node.nextNode = temp;
     }
+
 }
 
 
@@ -109,5 +126,6 @@ list.append('hey');
 list.append('ho');
 list.append('lesgo');
 
+list.insertAt('testao', 3); //nao ta funfando
 
 console.log(list.toString());
