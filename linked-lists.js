@@ -6,7 +6,7 @@ class LinkedList {
     append(value) {
         const node = new Node();
         node.value = value;
-        if(this.head === null) {this.head = node; return;}
+        if (this.head === null) { this.head = node; return; }
         let current = this.head;
         while (current.nextNode != null) {
             current = current.nextNode;
@@ -22,7 +22,7 @@ class LinkedList {
     }
 
     size() {
-        if(this.head === null) {return 0 ;}
+        if (this.head === null) { return 0; }
         let count = 1;
         let current = this.head;
         while (current.nextNode != null) {
@@ -31,7 +31,7 @@ class LinkedList {
         }
         return count;
     }
-    
+
     tail() {
         let tail = this.head;
         while (tail.nextNode != null) {
@@ -41,7 +41,7 @@ class LinkedList {
     }
 
     at(index) {
-        if (index >= this.size() || index < 0) {return 'Index is out of range!'};
+        if (index >= this.size() || index < 0) { return 'Index is out of range!' };
         let node = this.head;
         let count = 0;
         while (count != index) {
@@ -49,9 +49,16 @@ class LinkedList {
             node = node.nextNode;
         }
         return node;
-
     }
 
+    pop() {
+        if (this.head === null) { return; }
+        let node = this.head;
+        while (node.nextNode.nextNode != null) {
+            node = node.nextNode;
+        }
+        node.nextNode = null;
+    }
 }
 
 class Node {
@@ -63,10 +70,9 @@ class Node {
 
 
 const list = new LinkedList();
-list.append('hey');
-list.append('hey ho');
-list.append('lesgo');
-list.prepend('thisfirst');
+// list.append('hey');
+// list.append('hey ho');
+// list.append('lesgo');
 
-
-console.log(list.at(0), list.at(1), list.at(2), list.at(4));
+list.pop();
+console.log(list);
