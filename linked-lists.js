@@ -81,6 +81,19 @@ class LinkedList {
         }
         return null;
     }
+
+    toString() {
+        if (this.head === null) {return null;}
+        let string = '';
+        let node = this.head;
+        while (node.nextNode != null) {
+            string = string + `(${node.value}) -> `;
+            node = node.nextNode;
+        }
+        string = string + `(${node.value}) -> null`;
+        return string;
+    }
+
 }
 
 class Node {
@@ -97,4 +110,4 @@ list.append('ho');
 list.append('lesgo');
 
 
-console.log([list]);
+console.log(list.toString());
