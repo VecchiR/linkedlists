@@ -118,6 +118,22 @@ class LinkedList {
         node.nextNode = temp;
     }
 
+    removeAt(index){
+        if (index >= this.size() || index < 0) { return 'Index is out of range!' ;}
+        let node = this.head;
+        let count = 0;
+        while (count+1 < index) {
+            count++;
+            node = node.nextNode;
+        }
+        try {
+            node.value = node.nextNode.value;
+            node.nextNode = node.nextNode.nextNode;
+        } catch {
+            this.head = null;
+        }
+    }
+
 }
 
 
