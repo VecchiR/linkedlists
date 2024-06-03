@@ -102,8 +102,8 @@ class LinkedList {
     }
 
     insertAt(value, index) {
-        if (index >= this.size() || index < 0) { return 'Index is out of range!' ;}
-        if (index === this.size()) {this.append(value);} // PRECISO FAZER FUNCIONAR PRA ESSE CASO SIZE=3, INDEX TB 3
+        if (index > this.size() || index < 0) { return 'Index is out of range!' ;}
+        if (index === this.size()) {return this.append(value);}
         let node = this.head;
         let count = 0;
         while (count < index) {
@@ -126,6 +126,5 @@ list.append('hey');
 list.append('ho');
 list.append('lesgo');
 
-list.insertAt('testao', 3); //nao ta funfando
 
 console.log(list.toString());
