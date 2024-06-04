@@ -119,18 +119,21 @@ export class LinkedList {
     }
 
     removeAt(index){
-        if (index >= this.size() || index < 0) { return 'Index is out of range!' ;}
-        let node = this.head;
+        if (index === null || index >= this.size() || index < 0) { return 'Index is out of range!' ;}
+        if (index === 0) {
+            this.head = this.head.nextNode;
+            return;
+        }
+        let currentNode = this.head;
         let count = 0;
-        while (count+1 < index) {
+        while (count +1 < index) {
             count++;
-            node = node.nextNode;
+            currentNode = currentNode.nextNode;
         }
         try {
-            node.value = node.nextNode.value;
-            node.nextNode = node.nextNode.nextNode;
+            currentNode.nextNode = currentNode.nextNode.nextNode;
         } catch {
-            this.head = null;
+            currentNode.nextNode = null;
         }
     }
 
