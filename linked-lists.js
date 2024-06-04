@@ -1,11 +1,11 @@
-class Node {
+export class Node {
     constructor() {
         this.value = null;
         this.nextNode = null;
     }
 }
 
-class LinkedList {
+export class LinkedList {
     constructor() {
         this.head = null;
     }
@@ -70,7 +70,7 @@ class LinkedList {
     contains(value) {
         if (this.head === null) { return false; }
         let node = this.head;
-        while (node.nextNode != null) {
+        while (node.nextNode != null || node === this.head) {
             if (node.value === value) {return true;}
             node = node.nextNode;
         }
@@ -137,10 +137,10 @@ class LinkedList {
 }
 
 
-const list = new LinkedList();
-list.append('hey');
-list.append('ho');
-list.append('lesgo');
+// const list = new LinkedList();
+// list.append('hey');
+// list.append('ho');
+// list.append('lesgo');
 
 
-console.log(list.toString());
+// console.log(list.toString());
